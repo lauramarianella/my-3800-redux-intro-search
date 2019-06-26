@@ -1,5 +1,12 @@
 import { createStore } from 'redux';
 
+let initialState = {
+  stateQuery: '',
+  stateMinPrice: 0,
+  stateMaxPrice: 100000,
+  stateInStock: false,
+};
+
 let reducer = (state, action) => {
   if (action.type === 'type_inpTxtQuery') {
     let newObj = { ...state, stateQuery: action.value };
@@ -27,18 +34,16 @@ let reducer = (state, action) => {
     //console.log(newObj);
     return newObj;
   }
+  if (action.type === 'clearAll') {
+    return { ...initialState };
+  }
 
   return state;
 };
 
 const store = createStore(
   reducer,
-  {
-    stateQuery: '',
-    stateMinPrice: 0,
-    stateMaxPrice: 100000,
-    stateInStock: true,
-  },
+  initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
