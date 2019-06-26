@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+http://wakaworkshops.surge.sh/workshop/redux-intro-search/slides/0
+#######################################################
+http://wakaworkshops.surge.sh/workshop/redux-intro-search/slides/29
 
-## Available Scripts
+Instructions
 
-In the project directory, you can run:
+Go over these questions to deepen your understanding
+Question 1
 
-### `npm start`
+Why do we need to use connect? Which components need to be connected and why?
+Question 2
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+mapStateToProps returns an object. What do the properties of this object represent?
+Question 3
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+How does information from from the Search component to the SearchResults component? Describe every step.
+Question 4
 
-### `npm test`
+Why do we need the value attribute on the input elements of the Search component? If we removed it, would we still need mapStateToProps when connecting that component?
+Question 5
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We could have not used redux and instead have 1 big component that does everything. Why is this a bad idea?
+Question 6
 
-### `npm run build`
+True or false: the SearchResult node in rerendered every time a user changes one of the input boxes under the Search node
+Question 7
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+When we connect a component, do we always need to provide a mapStateToProps?
+Question 8
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Why is redux necessary for this project?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#######################################################
+http://wakaworkshops.surge.sh/workshop/redux-intro-search/slides/30
 
-### `npm run eject`
+Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Exercises
+Question 1
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Like in previous workshops, summarize the project and then rebuild it from scratch using the summary when necessary
+Question 2
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Add 2 items
+Question 3
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Right now the minimum and maximum price input boxes don't change anything. fix this.
+Question 4
 
-## Learn More
+Add a property called inStock that refers to a boolean to each item. Add a checkbox to the form to indicate whether or not the user only wants to only see items that are in stock. You'll need to find out what input type to use to display a checkbox. Also, you'll need to find out out more about event.target.checked by using console.log
+Question 5
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Add a button to clear the form
+Question 6
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Right now the user sees all 3 text input boxes right away. Change it so that the user only sees the query text box and add a button that, when clicked, displays the other two boxes.
