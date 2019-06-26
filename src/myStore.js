@@ -5,6 +5,7 @@ let initialState = {
   stateMinPrice: 0,
   stateMaxPrice: 100000,
   stateInStock: false,
+  stateAdvancedSearch: false,
 };
 
 let reducer = (state, action) => {
@@ -36,6 +37,10 @@ let reducer = (state, action) => {
   }
   if (action.type === 'clearAll') {
     return { ...initialState };
+  }
+
+  if (action.type === 'advancedSearch') {
+    return { ...state, stateAdvancedSearch: action.value };
   }
 
   return state;

@@ -33,7 +33,51 @@ class UnconnectedMySearch extends Component {
     this.props.dispatch({ type: 'clearAll' });
   };
 
+  onClickHandlerAdvancedSearch = (ev) => {
+    this.props.dispatch({
+      type: 'advancedSearch',
+      value: !this.props.propAdvancedSearch,
+    });
+  };
+
   render() {
+    const advancedSearch = this.props.propAdvancedSearch ? (
+      <div>
+        <h3>Advanced Search:</h3>
+        <div>
+          Min price:
+          <input
+            type="text"
+            onChange={this.onChangeHandlerNumber}
+            placeholder="min price"
+            name="inpTxtMinPrice"
+            value={this.props.propMinPrice}
+          />
+        </div>
+        <div>
+          Max price:
+          <input
+            type="text"
+            onChange={this.onChangeHandlerNumber}
+            placeholder="max price"
+            name="inpTxtMaxPrice"
+            value={this.props.propMaxPrice}
+          />
+        </div>
+        <div>
+          In Stock:
+          <input
+            type="checkbox"
+            onChange={this.onClickChkBoxHandler}
+            name="inpChkBoxInStock"
+            checked={this.props.propInStock}
+          />
+        </div>
+      </div>
+    ) : (
+      <div />
+    );
+
     return (
       <div>
         <form>
@@ -48,36 +92,8 @@ class UnconnectedMySearch extends Component {
               value={this.props.propQuery}
             />
           </div>
-          <div>
-            Min price:
-            <input
-              type="text"
-              onChange={this.onChangeHandlerNumber}
-              placeholder="min price"
-              name="inpTxtMinPrice"
-              value={this.props.propMinPrice}
-            />
-          </div>
-          <div>
-            Max price:
-            <input
-              type="text"
-              onChange={this.onChangeHandlerNumber}
-              placeholder="max price"
-              name="inpTxtMaxPrice"
-              value={this.props.propMaxPrice}
-            />
-          </div>
-          <div>
-            In Stock:
-            <input
-              type="checkbox"
-              onChange={this.onClickChkBoxHandler}
-              name="inpChkBoxInStock"
-              checked={this.props.propInStock}
-            />
-          </div>
-          <div>
+          <div>{advancedSearch}</div>
+          {/* <div>
             <h3>State query: {this.props.propQuery}</h3>
           </div>
           <div>
@@ -89,11 +105,19 @@ class UnconnectedMySearch extends Component {
           <div>
             <h3>State In Stock: {this.props.propInStock + ''}</h3>
           </div>
+          <div>
+            <h3>Advanced Search: {this.props.propAdvancedSearch + ''}</h3>
+          </div> */}
         </form>
         <input
           type="button"
           value="Clear all"
           onClick={this.onClickHandlerClearAll}
+        />
+        <input
+          type="button"
+          value="Advanced search"
+          onClick={this.onClickHandlerAdvancedSearch}
         />
       </div>
     );
@@ -106,6 +130,7 @@ let mapStateToProps = (st) => {
     propMinPrice: st.stateMinPrice,
     propMaxPrice: st.stateMaxPrice,
     propInStock: st.stateInStock,
+    propAdvancedSearch: st.stateAdvancedSearch,
   };
 };
 let MySearch = connect(mapStateToProps)(UnconnectedMySearch);
